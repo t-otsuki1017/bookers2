@@ -17,10 +17,12 @@
 		<% end %>
 
 		<!-- SIDE BAR-->
-		<%= render'books/list',book:@book ,user:@user %>
+		<div class="side-bar col-xs-3">
+		  <%= render'books/list',book:@book ,user:@user %>
+		</div>
 
 		<!-- MAIN LIST-->
-		<div class="main-list col-md-9">
+		<div class="main-list col-xs-9">
 			<!-- Book Detail-->
 			<div class="book-detail">
 				<h2>Book detail</h2>

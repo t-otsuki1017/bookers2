@@ -19,10 +19,12 @@
 		<% end %>
 
 		<!-- SIDE BAR-->
-		<%= render'books/list',book:@book ,user:@user %>
+		<div class="side-bar col-xs-3">
+			<%= render'books/list',book:@book ,user:@user %>
+		</div>
 
 		<!-- MAIN LIST-->
-		<div class="main-list col-md-9">
+		<div class="main-list col-xs-9">
 			<!-- Books-->
 			<div class="books">
 				<h2>Books</h2>
@@ -38,7 +40,9 @@
 					<% @books.each do |book| %>
 					<tbody>
 						<tr>
-							<td> <%= attachment_image_tag book.user, :profile_image, fallback: "no_image.jpg" ,class:"img-responsive"%></td>
+							<td><%= link_to user_path(book.user.id), class: " user_#{book.user_id}" do %>
+							    <%= attachment_image_tag book.user, :profile_image, fallback: "no_image.jpg" ,class:"img-responsive"%></td>
+							<% end %>
 							<td> <%= link_to book.title,book_path(book.id), class: "book_#{book.id}" %> </td>
 							<td><%= book.body %></td>
 						</tr>
